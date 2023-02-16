@@ -1,0 +1,75 @@
+#include<climits>
+#include<iostream>
+using namespace std;
+
+class StackA{
+ int *data;
+ int next;
+ int capacity;
+
+ public:
+
+ StackA(){         //Constructor for class StackA
+    data=new int[5];
+    next=0;
+    capacity=5;
+ }
+
+
+ int size(){
+  return next;
+ }
+ 
+ 
+ bool isempty(){
+ //return next==0; or
+ if(next==0){
+  return true;
+ }
+ else{
+  return false;
+ }
+ }
+
+
+ void push(int element){
+  if(next==capacity){// this is dynamic array i.e whenever array is full we are increasing the size that.
+    int *ndata=new int[2*capacity];
+    for(int i=0;i<capacity;i++){
+            ndata[i]=data[i];
+   }
+   capacity*=2;
+   delete [] data;
+   data=ndata;
+  }
+  data[next]=element;
+  next++;
+  }
+
+
+
+  int pop(){
+   if(isempty()){    //or else we can check if next is at zero'th index which means stack is empty
+    cout<<"stack is empty"<<endl;
+   return INT_MIN;
+   }
+   else{
+    next--;
+    return data[next];
+   }
+   }
+
+
+
+   int top(){
+    if(isempty()){    //or else we can check if next is at zero'th index which means stack is empty
+     cout<<"stack is empty"<<endl;
+     return INT_MIN;//this is simply written because return type is int, so returning some value.
+    }
+    return data[next-1];
+   }
+
+};
+int main(){
+return 0;
+}
