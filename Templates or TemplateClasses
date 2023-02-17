@@ -1,0 +1,127 @@
+/**Follow all comments for clear understanding of concept**/
+//class with pair of int values 
+class Pair{
+    int x;
+    int y;
+    
+    public:
+
+    void setx(int x){
+        this->x=x;
+    }
+    int getx(){
+        return x;
+    }
+    
+    void sety(int y){
+        this->y=y;
+    }
+    int gety(){
+        return y;
+    }
+};
+
+//class with pair of double values
+class Pair{
+    double x;
+    double y;
+    
+    public:
+
+    void setx(double x){
+        this->x=x;
+    }
+    double getx(){
+        return x;
+    }
+    
+    void sety(double y){
+        this->y=y;
+    }
+    double gety(){
+        return y;
+    }
+};
+
+//Now what if you want the same class of some other data type then again you need to  create another class by changing the data types
+-->So here comes TEMPLATE'S into the picture
+-->Template allow us to create class declared in the temporary data types and can be declared required data type at the time of object creation
+
+{--------Template class with single temporary data type....
+
+template <typename T>
+class Pair{
+  T x;
+  T y;
+  
+  public:
+  void setx(T x){
+        this->x=x;
+    }
+    T getx(){
+        return x;
+    }
+    
+    void sety(T y){
+        this->y=y;
+    }
+    T gety(){
+        return y;
+    }
+};
+int main(){
+  Pair<int> p1; //This means we are declaring T as int, so T will be replaced with int.
+ }
+ 
+ --------}
+ 
+ 
+
+{-------- Template with multiple data types
+
+template<typename T,typename V>
+class Pair{
+  T x;
+  V y;
+  
+  public:
+    T getx(){
+      return x;
+    
+    void setx(T x){
+      this->x=x;
+      
+     V gety(){
+      return y;
+    
+    void setx(V y){
+      this->y=y;
+  };
+  int main(){
+    Pair<int,double> p1;  //Here T as int and V as double
+  }
+  
+ ---------}
+ 
+ 
+ 
+ {-----------We can also pass user defined datatype(class) as datatype in the Templates-
+ 
+ For example, Pair<(pair<int,int>),int> 
+ In order to assign values to this type of classes:
+ 
+Pair<(pair<int,int>),int>  p1;
+p1.sety(10);                   // setting y value in the pair of (x,y) for the object p1.
+
+Pair<int,int> p2;              // In order to set the x in the pair of (x,y) for the object we need to create one pair class because x is of class datatype
+p2.setx(1);
+p2.sety(2);
+
+p1.setx(p2);                   //we need to assign the value of type  pair class  for x of object p1.
+
+
+[x,y]=[(1,2),10]  // This is the structure of the object p1
+cout<<p1.getx().getx()<<endl;
+cout<<p1.getx().gety()<<endl;
+cout<<p1.gety()<<endl;
+ 
