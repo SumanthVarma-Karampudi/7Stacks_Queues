@@ -1,0 +1,15 @@
+ #include ".h" -------------------->//This is just like program file but this should not contain main code
+ #include "StackUsingArray.h"       //This statement just replaces the code in the file, in the particular program
+ 
+                                               INBUILT STACK
+#include <stack>
+
+int main(){
+  stack<int> s1;             //creating object for inbuilt stack is similar as for the template class
+      s1.push(10);
+      s1.pop();
+      s1.size();
+      s1.empty();
+      s1.top();
+}
+                       
