@@ -1,0 +1,63 @@
+//Queue implementation using array- Creating template Queue class
+template<typename T>
+class QueueUsingArrays(
+  T *data;
+  int next;
+  int first;
+  int size;
+  
+  public:
+  QueueUsingArrays(int s){
+    data=new T[s];
+    next=0;
+    first=-1;
+    size=0;
+    capacity=s;
+   }
+   
+   
+   T getsize(){
+    return size;
+   }
+   
+   
+   bool isempty(){
+    return size==-1;
+   }
+   
+   
+   void enqueue(T element){
+    if(size==capacity){
+      cout<<"queue is full"<<endl;
+    }
+    data[next]=element;
+    next=(next+1)%capacity;
+    if(first=-1){
+      first++;
+    }
+    size++;
+   }
+   
+   
+   T dequeue(){
+    if(first==-1){
+      cout<<"queue is empty"<<endl;
+      return 0;
+    }
+    T ans=head[first];
+    first=(first+1)%capacity;
+    size--;
+    if(size==0){
+      first=-1;
+      next=0;
+    }
+    return ans;
+   }
+   
+   
+   T front(){
+    if(isempty()){
+      cout<<"Queue is empty"<<endl;
+      return 0;
+      
+};
