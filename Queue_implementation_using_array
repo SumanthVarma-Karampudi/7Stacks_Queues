@@ -27,9 +27,26 @@ class QueueUsingArrays(
    
    
    void enqueue(T element){
-    if(size==capacity){
-      cout<<"queue is full"<<endl;
+    if(size==capacity){                          //dynamic queue
+      T *newdata=new T[2*capacity];
+      int j=0;
+      for(int i=first;i<capacity;i++){
+        newdata[j]=data[i];
+      }
+      for(i=0;i<next;i++){
+        newdata[j]=data[i];
+      }
+      T *temp=data;
+      data=newdata;
+      delete [] temp;
+      next=capacity;
+      capacity*=2;
     }
+     
+    //if(size==capacity){                       //static queue
+    //  cout<<"queue is full"<<endl;
+    //}
+    
     data[next]=element;
     next=(next+1)%capacity;
     if(first=-1){
